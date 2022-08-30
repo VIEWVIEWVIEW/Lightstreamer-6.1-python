@@ -1,0 +1,45 @@
+generator client {
+  provider  = "prisma-client-py"
+  interface = "sync"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:database.sqlite3"
+}
+
+model Instrument {
+  isin                 String    @id @unique // isin acts as the primary key
+  name                 String
+  wkn                  String    @unique
+  shortcode            String
+  index_affiliation    String?
+  market               String?
+  end_date             DateTime?
+  minimum_trading_unit Int       @default(1)
+  denomination         Int       @default(1)
+  created_at           DateTime  @default(now())
+  updated_at           DateTime  @default(now()) @updatedAt
+  instrument_id        Int?
+  market_id            Int?
+  type                 String
+  type_fk              Type      @relation(fields: [type], references: [type])
+}
+
+model Type {
+  type       String @unique @id
+  Instrument Instrument[]
+}
+
+model LastUpdateInstrumentIds {
+    id Int @id @unique
+    last_update DateTime @default(now())
+}
+
+model LastUpdateHandelsuniversum {
+    id Int @id @default(autoincrement())
+
+    // We use the filename to tell us when we updated the last time.
+    // E.g. last file in our db is "stammdaten20220825.pdf" but "stammdaten20220826.pdf" is available on the server => run update
+    filename String
+}
