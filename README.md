@@ -259,6 +259,7 @@ Diese Liste enthält Strings der vertikalen Koordinaten für die Spaltentrennung
 Quirk: es wird dafür keine zweidimensionale Liste verwendet, sondern eine Liste mit einem String pro Tabelle, in welchem kommasepariert die Koordinaten stehen. 
 
 Nun werden alle Texte korrekt erkannt:
+
 ![coords.png](./docs/coords.png)
 
 ---
