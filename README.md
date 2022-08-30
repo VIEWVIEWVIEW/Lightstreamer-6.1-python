@@ -1,4 +1,9 @@
+
+
 # Ausarbeitung Skriptsprachen SS22 | Marc-Alexander Richts
+
+- Eine Kopie von diesem Dokument befindet sich als .pdf in ./docs
+- Github Repo: https://github.com/VIEWVIEWVIEW/Lightstreamer-6.1-python
 
 ## Vorwort
 
@@ -55,7 +60,7 @@ Es wird empfohlen ein ``venv`` vorher anzulegen, oder in einem Container zu arbe
 
 
 
-Die folgenden Pakete müssten installiert werden:
+Die folgenden Pakete müssten installiert werden (``pip install -r requirements.txt``):
 ```
 beautifulsoup4==4.11.1
 camelot-py==0.9.0
@@ -66,6 +71,7 @@ urllib3==1.26.11
 prisma~=0.6.6
 websocket-client~=1.3.3
 ```
+
 
 --- 
 
@@ -234,7 +240,7 @@ Zum Parsen der PDFs wird die Library "Camelot" verwendet. Camelot versucht Tabel
 In diesem Beispiel wird "ZZUH" fälschlicherweise mit in die Zelle für den Namen des Assets angefügt, da der Abstand zwischen den zwei Texten in dem PDF nicht groß genug ist. 
 
 
-![too_small_margin](too_small_margin.png)
+![too_small_margin](./docs/too_small_margin.png)
 
 Das Ergebnis nach dem Parsevorgang ist folgende Tabelle:
 
@@ -253,7 +259,7 @@ Diese Liste enthält Strings der vertikalen Koordinaten für die Spaltentrennung
 Quirk: es wird dafür keine zweidimensionale Liste verwendet, sondern eine Liste mit einem String pro Tabelle, in welchem kommasepariert die Koordinaten stehen. 
 
 Nun werden alle Texte korrekt erkannt:
-![coords.png](coords.png)
+![coords.png](./docs/coords.png)
 
 ---
 
